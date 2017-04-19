@@ -1,10 +1,21 @@
-<h1>Firetasks Translate</h1>
+<div class="row">
+  <div class="col-xs-10">
+    <h1>Firetasks Translate</h1>
+  </div>
+  <div class="col-xs-2">
+    <select class="form-control"
+      style="margin-top: 24px"
+      ng-model="lang"
+      ng-options="option for option in options">
+    </select>
+  </div>
+</div>
 
 <ul class="list-group">
   <li class="list-group-item animate-repeat animate-show-hide"
     ng-repeat="todo in todos"
     ng-show="!todo.done || !hide">
-    {{todo.title}}
+    {{todo.translate[lang]}}
     <input type="checkbox"
       class="pull-right"
       ng-model="todo.done"
@@ -16,7 +27,7 @@
   <div class="progress-bar" style="width: {{progress()}}%"></div>
 </div>
 
-<form ng-submit="addTodo(task); task = null">
+<form ng-submit="addTodo(task, lang); task = null">
   <div class="input-group">
     <input type="text"
       class="form-control"

@@ -14,11 +14,14 @@ angular.module('todoTranslateApp')
 
     $scope.hide = false;
     $scope.todos = $firebaseArray(ref);
+    $scope.options = ['pt','en','es','de','fr','it'];
+    $scope.lang = 'pt';
 
-    $scope.addTodo = function(title) {
+    $scope.addTodo = function(title, lang) {
       $scope.todos.$add({
         done: false,
-        title: title
+        title: title,
+        lang: lang
       });
     };
 
