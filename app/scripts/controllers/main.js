@@ -8,14 +8,14 @@
  * Controller of the todoTranslateApp
  */
 angular.module('todoTranslateApp')
-  .controller('MainCtrl', function ($scope, $firebaseArray) {
+  .controller('MainCtrl', function ($scope, $firebaseArray, $cookies) {
 
     var ref = firebase.database().ref().child('todos');
 
-    $scope.hide = false;
     $scope.todos = $firebaseArray(ref);
     $scope.options = ['pt','en','es','de','fr','it'];
-    $scope.lang = 'pt';
+    $scope.lang = $cookies.get('lang') || 'pt';
+    $scope.hide = $cookies.get('hide') || false;
 
     $scope.addTodo = function(title, lang) {
       $scope.todos.$add({
@@ -37,6 +37,14 @@ angular.module('todoTranslateApp')
           $scope.todos.$remove(todo);
         }
       });
+    };
+
+    $scope.saveLang = function() {
+      $cookies.put('lang', $scope.lang);
+    };
+
+    $scope.saveHide = function() {
+      $cookies.put('hide', $scope.hide);
     };
 
   });
