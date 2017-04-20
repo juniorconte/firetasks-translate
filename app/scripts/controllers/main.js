@@ -15,7 +15,7 @@ angular.module('todoTranslateApp')
     $scope.todos = $firebaseArray(ref);
     $scope.options = ['pt','en','es','de','fr','it'];
     $scope.lang = $cookies.get('lang') || 'pt';
-    $scope.hide = $cookies.get('hide') || false;
+    $scope.hide = $cookies.get('hide') === 'true' || false;
 
     $scope.addTodo = function(title, lang) {
       $scope.todos.$add({
