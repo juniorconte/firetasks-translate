@@ -8,3 +8,21 @@
 body {
   padding: 30px;
 }
+
+input[type="checkbox"] {
+  transform:scale(3, 3);
+  cursor: pointer;
+  margin: 16px 10px;
+}
+
+.list-group-item:hover {
+  background-color: #F5F5F5;
+}
+
+.list-group-item.done {
+  opacity: 0.5;
+}
+
+.inline {
+  display: inline;
+}

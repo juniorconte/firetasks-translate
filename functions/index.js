@@ -49,5 +49,5 @@ function createTranslationPromise(source, target, snapshot) {
 }
 
 function createTranslateUrl(source, target, payload) {
-  return `https://www.googleapis.com/language/translate/v2?key=${functions.config().firebase.apiKey}&source=${source}&target=${target}&q=${payload}`;
+  return `https://www.googleapis.com/language/translate/v2?key=${functions.config().firebase.apiKey}&source=${source}&target=${target}&q=${payload}&format=text`;
 }
