@@ -10,9 +10,9 @@ body {
 }
 
 input[type="checkbox"] {
-  transform:scale(3, 3);
+  transform:scale(2, 2);
   cursor: pointer;
-  margin: 16px 10px;
+  margin: 18px 10px;
 }
 
 .list-group-item:hover {
@@ -28,7 +28,7 @@ input[type="checkbox"] {
 }
 
 .select-lang {
-  width: 50px;
+  width: 65px;
   display: inline;
 }
 
@@ -56,4 +56,40 @@ input[type="checkbox"] {
 
 .logout:hover img {
   opacity: 0;
+}
+
+.responsive-button {
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.responsive-button-container {
+  padding-bottom: 0px;
+}
+
+@media all and (max-width: 1200px) {
+  h1 {
+    font-size: 34px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  h1 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  h1 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+}
+
+@media all and (max-width: 430px) {
+  h1 {
+    font-size: 18px;
+    line-height: 34px;
+  }
 }
