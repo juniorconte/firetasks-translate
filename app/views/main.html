@@ -25,35 +25,34 @@
 
 <hr>
 
-<div class="well">
-  <div ng-if="!currentUser">
-    <legend>{{'SESSION_TITLE' | translate}}</legend>
-    <p>{{'SESSION_DISCLAIMER' | translate}}.</p>
-    <div class="row">
-      <div class="col-xs-3">
-        <button class="btn btn-default btn-block"
-          ng-click="login('google')">
-          Google
-        </button>
-      </div>
-      <div class="col-xs-3">
-        <button class="btn btn-default btn-block"
-          ng-click="login('facebook')">
-          Facebook
-        </button>
-      </div>
-      <div class="col-xs-3">
-        <button class="btn btn-default btn-block"
-          ng-click="login('twitter')">
-          Twitter
-        </button>
-      </div>
-      <div class="col-xs-3">
-        <button class="btn btn-default btn-block"
-          ng-click="login('github')">
-          GitHub
-        </button>
-      </div>
+<div class="well"
+  ng-if="!currentUser">
+  <legend>{{'SESSION_TITLE' | translate}}</legend>
+  <p>{{'SESSION_DISCLAIMER' | translate}}.</p>
+  <div class="row">
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-block"
+        ng-click="login('google')">
+        Google
+      </button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-block"
+        ng-click="login('facebook')">
+        Facebook
+      </button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-block"
+        ng-click="login('twitter')">
+        Twitter
+      </button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-block"
+        ng-click="login('github')">
+        GitHub
+      </button>
     </div>
   </div>
 </div>
