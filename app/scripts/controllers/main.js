@@ -56,11 +56,15 @@ angular.module('todoTranslateApp')
       $cookies.put('hide', $scope.hide);
     };
 
-    $scope.login = function() {
-      $firebaseAuth().$signInWithPopup('google').then(function(firebaseUser) {
-        console.info(firebaseUser);
+    $scope.login = function(provider) {
+      $firebaseAuth().$signInWithPopup(provider).then(function(firebaseUser) {
+        console.info('success', firebaseUser);
       }).catch(function(error) {
-        console.log(error);
+        console.warn('error', error);
+
+        if (error.code === 'auth/account-exists-with-different-credential') {
+          $window.alert('O email ' + error.email + ' já está associado a outro provedor de acesso, utilize-o para continuar.');
+        }
       });
     };
 

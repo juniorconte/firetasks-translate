@@ -26,3 +26,34 @@ input[type="checkbox"] {
 .inline {
   display: inline;
 }
+
+.select-lang {
+  width: 50px;
+  display: inline;
+}
+
+.logout {
+  border: 0;
+  padding: 0;
+  margin-left: 15px;
+  border-radius: 4px;
+  background-color: #FFF;
+  position: relative;
+}
+
+.logout .glyphicon {
+  position: absolute;
+  font-size: 28px;
+  margin: 3px;
+  z-index: 1;
+}
+
+.logout img {
+  position: relative;
+  width: 36px;
+  z-index: 2;
+}
+
+.logout:hover img {
+  opacity: 0;
+}
