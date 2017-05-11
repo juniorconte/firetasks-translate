@@ -6,19 +6,19 @@
       <select class="form-control select-lang"
         ng-model="lang"
         ng-options="option for option in options"
-        ng-change="saveLang()">
+        ng-change="saveLang(lang)">
       </select>
 
       <button type="button"
         class="logout"
-        ng-if="currentUser"
+        ng-if="user"
         ng-click="logout()">
 
         <i class="glyphicon glyphicon-log-out"></i>
 
         <img class="img-thumbnail"
-          title="Encerrar sessão de {{currentUser.displayName}}"
-          ng-src="{{currentUser.photoURL}}">
+          title="Encerrar sessão de {{user.displayName}}"
+          ng-src="{{user.photoURL}}">
       </button>
     </div>
   </div>
@@ -26,7 +26,7 @@
 
 <hr>
 
-<div class="well responsive-button-container" ng-if="!currentUser">
+<div class="well responsive-button-container" ng-if="!user">
   <legend>{{'SESSION_TITLE' | translate}}</legend>
   <p>{{'SESSION_DISCLAIMER' | translate}}</p>
   <div class="row" style="margin-top: 20px">
@@ -54,7 +54,7 @@
     <input type="checkbox"
       class="pull-right"
       ng-model="todo.done"
-      ng-disabled="!currentUser"
+      ng-disabled="!user"
       ng-change="todos.$save(todo)">
 
     <h4 class="list-group-item-heading">
@@ -71,17 +71,17 @@
   <div class="progress-bar" style="width: {{progress()}}%"></div>
 </div>
 
-<form ng-submit="addTodo(task, lang, currentUser); task = null">
+<form ng-submit="addTodo(task, lang, user); task = null">
   <div class="input-group">
     <input type="text"
       class="form-control"
       ng-model="task"
-      ng-disabled="!currentUser"
+      ng-disabled="!user"
       placeholder="{{'NEW_TASK_INPUT' | translate}}">
     <span class="input-group-btn">
       <button type="submit"
         class="btn btn-default"
-        ng-disabled="!currentUser || !task">
+        ng-disabled="!user || !task">
         <i class="glyphicon glyphicon-plus-sign"></i>
       </button>
     </span>
@@ -94,7 +94,7 @@
   <div class="col-xs-12 col-sm-6">
     <button type="button"
       class="btn btn-warning btn-block responsive-button"
-      ng-click="hide = !hide; saveHide()">
+      ng-click="hide = !hide; saveHide(hide)">
       {{hide && 'SHOW_TASKS_BUTTON' || 'HIDE_TASKS_BUTTON' | translate}}
     </button>
   </div>
@@ -102,7 +102,7 @@
     <button type="button"
       class="btn btn-danger btn-block responsive-button"
       ng-click="clean()"
-      ng-disabled="!currentUser">
+      ng-disabled="!user">
       {{'REMOVE_TASKS_BUTTON' | translate}}
     </button>
   </div>
